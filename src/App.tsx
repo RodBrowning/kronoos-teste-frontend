@@ -1,7 +1,13 @@
 import "./App.css";
 
+import { Button } from "@/components/ui/button";
+
 function App() {
-  return <div className="text-red-800">Hello</div>;
+  return (
+    <div>
+      <Button>Clique aqui</Button>
+    </div>
+  );
 }
 
 export default App;
