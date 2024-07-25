@@ -1,13 +1,7 @@
-
-import './App.css'
+import "./App.css";
 
 function App() {
-
-  return (
-    <>
-      Hello
-    </>
-  )
+  return <div className="text-red-800">Hello</div>;
 }
 
-export default App
+export default App;
