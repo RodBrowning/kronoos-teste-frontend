@@ -76,7 +76,7 @@ export const listinCardOnList: Story = {
   },
   render: (args) => {
     const numOnlineUsers = onlineUsers.slice(0, args.numOfOnlineUsers);
-    const numOfflineUsers = offlineUsers.slice(0, args.numOfOnlineUsers);
+    const numOfflineUsers = offlineUsers.slice(0, args.numOfOfflineUsers);
     return (
       <ListingCardWrapper
         ListingCardPropsArray={[...numOnlineUsers, ...numOfflineUsers]}
