@@ -142,7 +142,7 @@ const profiles: {
     ],
   },
   {
-    id: 1513515313,
+    id: 15132324515313,
     imgURL: "https://github.com/shadcn.png",
     title: "Ricardo Correia",
     position: "Cirurgião destista",
@@ -164,7 +164,7 @@ const profiles: {
     ],
   },
   {
-    id: 1513515313,
+    id: 15135143435313,
     imgURL: "https://github.com/shadcn.png",
     title: "Otavio Pereira",
     position: "Coordenador artistico",

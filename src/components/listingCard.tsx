@@ -67,6 +67,7 @@ export const ListingCard: React.FC<props> = ({
               [`bg-${selectedColor}-500`]: selectedColor,
             })}
           ></div>
+          <div hidden className="bg-gray-500 text-gray-500 bg-green-500 text-green-500"></div>
         </CardFooter>
       </div>
     </Card>
