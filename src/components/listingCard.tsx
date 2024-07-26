@@ -18,16 +18,9 @@ export const ListingCard: React.FC<props> = ({
   online,
   border = false,
 }) => {
-  const [selectedColor, setSelectedColor] = useState<string>(
-    online ? "green" : "gray"
-  );
   const [includeBorder, setIncludeBorder] = useState<string>(
     border ? "" : "border-none"
   );
-
-  useEffect(() => {
-    setSelectedColor(online ? "green" : "gray");
-  }, [online]);
 
   useEffect(() => {
     setIncludeBorder(border ? "" : "border-none");
@@ -55,19 +48,17 @@ export const ListingCard: React.FC<props> = ({
           </div>
         </CardContent>
         <CardFooter className="p-0 flex items-end gap-1">
-          <p
-            className={clsx("text-xs", {
-              [`text-${selectedColor}-500`]: selectedColor,
-            })}
-          >
-            {online ? "online" : "offline"}
-          </p>
-          <div
-            className={clsx("w-1.5 h-1.5 rounded-full mb-0.5", {
-              [`bg-${selectedColor}-500`]: selectedColor,
-            })}
-          ></div>
-          <div hidden className="bg-gray-500 text-gray-500 bg-green-500 text-green-500"></div>
+          {online ? (
+            <>
+              <p className="text-xs text-green-500">online</p>
+              <div className="w-1.5 h-1.5 rounded-full mb-0.5 bg-green-500"></div>
+            </>
+          ) : (
+            <>
+              <p className="text-xs text-gray-500">offline</p>
+              <div className="w-1.5 h-1.5 rounded-full mb-0.5 bg-gray-500"></div>
+            </>
+          )}
         </CardFooter>
       </div>
     </Card>
