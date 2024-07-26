@@ -3,6 +3,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { ComponentProps } from "react";
 import { ListingCard } from "@/components/listingCard";
 import { ListingCardWrapper } from "@/components/listingCardWrapper";
+import { users } from "@/mockData/users";
 
 type StoryProps = ComponentProps<typeof ListingCard> & {
   numOfOnlineUsers: number;
@@ -32,70 +33,8 @@ type Story = StoryObj<StoryProps>;
 export const listinCard: Story = {};
 export const listinCardOffline: Story = {};
 
-const mockUsersData = [
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: true,
-    name: "Flavio Macedo",
-    position: "Diretor",
-  },
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: true,
-    name: "Maria do Carmo",
-    position: "CTO",
-  },
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: false,
-    name: "Marcos Latin",
-    position: "Desenvolvedor pleno",
-  },
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: true,
-    name: "Ana Souza",
-    position: "Gerente de Projeto",
-  },
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: false,
-    name: "João Pereira",
-    position: "Analista de Sistemas",
-  },
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: true,
-    name: "Lucas Fernandes",
-    position: "Designer UX/UI",
-  },
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: false,
-    name: "Juliana Oliveira",
-    position: "Arquiteto de Software",
-  },
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: true,
-    name: "Roberta Lima",
-    position: "Engenheira de Dados",
-  },
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: false,
-    name: "Carlos Santos",
-    position: "DevOps",
-  },
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: true,
-    name: "Fernanda Costa",
-    position: "Analista de QA",
-  },
-];
-const onlineUsers = mockUsersData.filter((user) => user.online);
-const offlineUsers = mockUsersData.filter((user) => !user.online);
+const onlineUsers = users.filter((user) => user.online);
+const offlineUsers = users.filter((user) => !user.online);
 
 export const listinCardOnList: Story = {
   args: {

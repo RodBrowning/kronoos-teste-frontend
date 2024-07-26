@@ -1,179 +1,15 @@
 import "./App.css";
 
 import { Facebook, Instagram, Youtube } from "lucide-react";
-import { ProfileCard, SocialMedias } from "./components/profileCard";
 
 import { CountCard } from "@/components/countCard";
 import { ListingCardWrapper } from "./components/listingCardWrapper";
+import { ProfileCard } from "./components/profileCard";
 import { Separator } from "@/components/ui/separator";
 import { SocialMedia } from "@/components/socialMedia";
-
-const profiles: {
-  id: number;
-  imgURL: string;
-  title: string;
-  position: string;
-  description: string;
-  socialMedias: SocialMedias[];
-}[] = [
-  {
-    id: 151151515313,
-    imgURL: "https://github.com/shadcn.png",
-    title: "Carlos Guarrido",
-    position: "Diretor de produção",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos eosnecessitatibus, laborum quibusdam mollitia in optio nesciunt!",
-    socialMedias: [
-      {
-        link: "#",
-        platform: "linkedin",
-      },
-      {
-        link: "#",
-        platform: "facebook",
-      },
-      {
-        link: "#",
-        platform: "instagram",
-      },
-    ],
-  },
-  {
-    id: 151345664513,
-    imgURL: "https://github.com/shadcn.png",
-    title: "Thiago Figueiredo",
-    position: "CEO",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos eosnecessitatibus, laborum quibusdam mollitia in optio nesciunt esse, recusandae, magni ullam est labore rerum voluptas autem provident. Ab, odit pariatur!",
-    socialMedias: [
-      {
-        link: "#",
-        platform: "linkedin",
-      },
-      {
-        link: "#",
-        platform: "facebook",
-      },
-      {
-        link: "#",
-        platform: "twitter",
-      },
-    ],
-  },
-  {
-    id: 1513515313,
-    imgURL: "https://github.com/shadcn.png",
-    title: "Valeria Massa",
-    position: "Advogada juridica",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos eosnecessitatibus, laborum quibusdam mollitia in optio nesciunt esse, recusandae, magni ullam est labore rerum voluptas autem provident. Ab, odit pariatur!",
-    socialMedias: [
-      {
-        link: "#",
-        platform: "linkedin",
-      },
-      {
-        link: "#",
-        platform: "twitch",
-      },
-      {
-        link: "#",
-        platform: "twitter",
-      },
-    ],
-  },
-];
-
-const socialMediasExemples: (SocialMedias & { id: number })[] = [
-  {
-    id: 1,
-    link: "#",
-    platform: "linkedin",
-  },
-  {
-    id: 2,
-    link: "#",
-    platform: "twitch",
-  },
-  {
-    id: 3,
-    link: "#",
-    platform: "twitter",
-  },
-  {
-    id: 4,
-    link: "#",
-    platform: "instagram",
-  },
-  {
-    id: 5,
-    link: "#",
-    platform: "facebook",
-  },
-];
-
-const mockUsersData = [
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: true,
-    name: "Flavio Macedo",
-    position: "Diretor",
-  },
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: true,
-    name: "Maria do Carmo",
-    position: "CTO",
-  },
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: false,
-    name: "Marcos Latin",
-    position: "Desenvolvedor pleno",
-  },
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: true,
-    name: "Ana Souza",
-    position: "Gerente de Projeto",
-  },
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: false,
-    name: "João Pereira",
-    position: "Analista de Sistemas",
-  },
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: true,
-    name: "Lucas Fernandes",
-    position: "Designer UX/UI",
-  },
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: false,
-    name: "Juliana Oliveira",
-    position: "Arquiteto de Software",
-  },
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: true,
-    name: "Roberta Lima",
-    position: "Engenheira de Dados",
-  },
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: false,
-    name: "Carlos Santos",
-    position: "DevOps",
-  },
-  {
-    imgURL: "https://github.com/shadcn.png",
-    online: true,
-    name: "Fernanda Costa",
-    position: "Analista de QA",
-  },
-];
+import { profiles } from "@/mockData/profiles";
+import { socialMedias } from "@/mockData/socialMedias";
+import { users } from "@/mockData/users";
 
 function App() {
   return (
@@ -184,7 +20,7 @@ function App() {
         </h1>
         <Separator className="my-5" />
         <div className="flex flex-wrap justify-center gap-5">
-          {profiles.map((profile, _) => (
+          {profiles.map((profile) => (
             <div key={profile.id}>
               <ProfileCard
                 imgURL={"https://github.com/shadcn.png"}
@@ -203,7 +39,7 @@ function App() {
         </h1>
         <Separator className="my-5" />
         <div className="flex flex-wrap justify-center gap-5">
-          {socialMediasExemples.map((socialMedia, _) => (
+          {socialMedias.map((socialMedia) => (
             <div key={socialMedia.id}>
               <SocialMedia {...socialMedia} />
             </div>
@@ -228,7 +64,13 @@ function App() {
             text={"Inscritos"}
             number={1000000}
           />
-          <CountCard delay={1} text={"Contatos"} number={5640} />
+          <CountCard
+            delay={1}
+            iconComponent={Facebook}
+            text={"Conexões"}
+            number={50000}
+          />
+          <CountCard delay={1.5} text={"Contatos"} number={5640} />
         </div>
       </section>
       <section className="mt-20">
@@ -236,7 +78,7 @@ function App() {
           Linsting Card Component
         </h1>
         <Separator className="my-5" />
-        <ListingCardWrapper ListingCardPropsArray={mockUsersData} />
+        <ListingCardWrapper ListingCardPropsArray={users} />
       </section>
     </div>
   );
