@@ -31,7 +31,11 @@ export default meta;
 
 type Story = StoryObj<StoryProps>;
 export const listinCard: Story = {};
-export const listinCardOffline: Story = {};
+export const listinCardOffline: Story = {
+  args: {
+    online: false,
+  },
+};
 
 const onlineUsers = users.filter((user) => user.online);
 const offlineUsers = users.filter((user) => !user.online);
