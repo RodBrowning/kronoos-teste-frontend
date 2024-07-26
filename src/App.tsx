@@ -1,7 +1,9 @@
 import "./App.css";
 
-import { ProfileCard } from "./components/profileCard";
+import { ProfileCard, SocialMedias } from "./components/profileCard";
+
 import { Separator } from "@/components/ui/separator";
+import { SocialMedia } from "./components/socialMedia";
 
 const profiles: {
   id: number;
@@ -9,10 +11,7 @@ const profiles: {
   title: string;
   position: string;
   description: string;
-  socialMedias: {
-    link: string;
-    platform: "linkedin" | "twitch" | "twitter";
-  }[];
+  socialMedias: SocialMedias[];
 }[] = [
   {
     id: 151151515313,
@@ -28,11 +27,11 @@ const profiles: {
       },
       {
         link: "#",
-        platform: "twitch",
+        platform: "facebook",
       },
       {
         link: "#",
-        platform: "twitter",
+        platform: "instagram",
       },
     ],
   },
@@ -50,7 +49,7 @@ const profiles: {
       },
       {
         link: "#",
-        platform: "twitch",
+        platform: "facebook",
       },
       {
         link: "#",
@@ -82,26 +81,69 @@ const profiles: {
   },
 ];
 
+const socialMediasExemples: (SocialMedias & { id: number })[] = [
+  {
+    id: 1,
+    link: "#",
+    platform: "linkedin",
+  },
+  {
+    id: 2,
+    link: "#",
+    platform: "twitch",
+  },
+  {
+    id: 3,
+    link: "#",
+    platform: "twitter",
+  },
+  {
+    id: 4,
+    link: "#",
+    platform: "instagram",
+  },
+  {
+    id: 5,
+    link: "#",
+    platform: "facebook",
+  },
+];
+
 function App() {
   return (
     <div className="container">
       <section>
-        <h1 className="text-2xl text-border text-white">Card Component</h1>
+        <h1 className="text-lg md:text-xl lg:text-2xl text-border text-white">
+          Card Component
+        </h1>
         <Separator className="my-5" />
+        <div className="flex flex-wrap justify-center gap-5">
+          {profiles.map((profile, _) => (
+            <div key={profile.id}>
+              <ProfileCard
+                imgURL={"https://github.com/shadcn.png"}
+                title={profile.title}
+                position={profile.position}
+                description={profile.description}
+                socialMedias={profile.socialMedias}
+              />
+            </div>
+          ))}
+        </div>
       </section>
-      <div className="flex flex-wrap justify-center gap-5">
-        {profiles.map((profile, _) => (
-          <div key={profile.id}>
-            <ProfileCard
-              imgURL={"https://github.com/shadcn.png"}
-              title={profile.title}
-              position={profile.position}
-              description={profile.description}
-              socialMedias={profile.socialMedias}
-            />
-          </div>
-        ))}
-      </div>
+      <section className="mt-20">
+        <h1 className="text-lg md:text-xl lg:text-2xl text-border text-white">
+          Social Media Button Component
+        </h1>
+        <Separator className="my-5" />
+        <div className="flex flex-wrap justify-center gap-5">
+          {socialMediasExemples.map((socialMedia, _) => (
+            <div key={socialMedia.id}>
+              <SocialMedia {...socialMedia} />
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

@@ -4,7 +4,8 @@ import { ProfileCard, SocialMedias } from "@/components/profileCard";
 import { ComponentProps } from "react";
 
 type StoryProps = ComponentProps<typeof ProfileCard> & {
-  numOfCards?: number; // Adicione aqui a propriedade personalizada
+  numOfCards?: number;
+  numOfMedias?: number;
 };
 
 const meta: Meta<StoryProps> = {
@@ -41,9 +42,29 @@ export const profileCard: Story = {
         link: "#",
         platform: "twitter",
       },
+      {
+        link: "#",
+        platform: "facebook",
+      },
+      {
+        link: "#",
+        platform: "instagram",
+      },
     ],
+    numOfMedias: 3,
   },
-  render: (args) => <ProfileCard {...args} />,
+  argTypes: {
+    numOfMedias: {
+      control: { type: "radio" },
+      defaultValue: 3,
+      options: [1, 3, 5],
+      description: "Number of social medias to display in the card",
+    },
+  },
+  render: (args) => {
+    args.socialMedias = args.socialMedias.slice(0, args.numOfMedias);
+    return <ProfileCard {...args} />;
+  },
 };
 
 const profiles: {
@@ -172,19 +193,22 @@ export const ManyProfileCards: Story = {
   },
   argTypes: {
     numOfCards: {
-      control: { type: "select" },
+      control: { type: "radio" },
       defaultValue: 3,
       options: [1, 3, 5],
       description: "Number of profile cards to display",
     },
   },
-  render: (args) => (
-    <div className="flex flex-wrap justify-center gap-5">
-      {profiles.map((profile) => (
-        <div key={profile.id}>
-          <ProfileCard {...profile} />
-        </div>
-      ))}
-    </div>
-  ),
+  render: (args) => {
+    let selectedProfiles = profiles.slice(0, args.numOfCards);
+    return (
+      <div className="flex flex-wrap justify-center gap-5">
+        {selectedProfiles.map((profile) => (
+          <div key={profile.id}>
+            <ProfileCard {...profile} />
+          </div>
+        ))}
+      </div>
+    );
+  },
 };

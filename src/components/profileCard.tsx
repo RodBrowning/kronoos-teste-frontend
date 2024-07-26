@@ -7,10 +7,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Facebook, Instagram, Linkedin, Twitch, Twitter } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { SocialMedia } from "./socialMedia";
 
 export type SocialMedias = {
   link: string;
@@ -25,21 +25,6 @@ type props = {
   socialMedias: SocialMedias[];
 };
 
-const platforms: {
-  [key in
-    | "linkedin"
-    | "twitch"
-    | "twitter"
-    | "facebook"
-    | "instagram"]: JSX.Element;
-} = {
-  linkedin: <Linkedin className="h-4 w-4 m-0" />,
-  twitch: <Twitch className="h-4 w-4 m-0" />,
-  twitter: <Twitter className="h-4 w-4 m-0" />,
-  facebook: <Facebook className="h-4 w-4 m-0" />,
-  instagram: <Instagram className="h-4 w-4 m-0" />,
-};
-
 export const ProfileCard: React.FC<props> = ({
   imgURL,
   title,
@@ -48,6 +33,7 @@ export const ProfileCard: React.FC<props> = ({
   socialMedias,
 }) => {
   const AvatarFallbackText = title.split(" ");
+
   return (
     <Card className="max-w-[290px] h-full flex justify-between flex-col">
       <div>
@@ -74,16 +60,9 @@ export const ProfileCard: React.FC<props> = ({
         <CardFooter className="gap-7 p-6 pt-0 gap-y-3 justify-center flex-wrap">
           {socialMedias.length &&
             socialMedias.map((media, index) => (
-              <Button
-                key={index}
-                variant="outline"
-                size="icon"
-                className="rounded-full"
-              >
-                <a href={media.link} target="_blank" rel="noopener noreferrer">
-                  {platforms[media.platform]}
-                </a>
-              </Button>
+              <div key={index}>
+                <SocialMedia link={media.link} platform={media.platform} />
+              </div>
             ))}
         </CardFooter>
       </div>
