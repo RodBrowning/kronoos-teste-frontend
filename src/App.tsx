@@ -20,10 +20,10 @@ function App() {
         </h1>
         <Separator className="my-5" />
         <div className="flex flex-wrap justify-center gap-5">
-          {profiles.map((profile) => (
+          {profiles.slice(0, 3).map((profile) => (
             <div key={profile.id}>
               <ProfileCard
-                imgURL={"https://github.com/shadcn.png"}
+                imgURL={profile.imgURL}
                 title={profile.title}
                 position={profile.position}
                 description={profile.description}

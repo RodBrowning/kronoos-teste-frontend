@@ -9,12 +9,56 @@ export const profiles: {
   socialMedias: SocialMedias[];
 }[] = [
   {
+    id: 1511592375313,
+    imgURL: "https://github.com/shadcn.png",
+    title: "Carla Nogueira",
+    position: "Designer Gráfico",
+    description:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos eosnecessitatibus, laborum quibusdam mollitia in optio nesciunt!",
+    socialMedias: [
+      {
+        link: "#",
+        platform: "linkedin",
+      },
+      {
+        link: "#",
+        platform: "facebook",
+      },
+      {
+        link: "#",
+        platform: "instagram",
+      },
+    ],
+  },
+  {
+    id: 151978615313,
+    imgURL: "https://github.com/shadcn.png",
+    title: "Rafael Costa",
+    position: "Product Manager",
+    description:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos eosnecessitatibus, laborum quibusdam mollitia in optio nesciunt!",
+    socialMedias: [
+      {
+        link: "#",
+        platform: "linkedin",
+      },
+      {
+        link: "#",
+        platform: "facebook",
+      },
+      {
+        link: "#",
+        platform: "instagram",
+      },
+    ],
+  },
+  {
     id: 151151515313,
     imgURL: "https://github.com/shadcn.png",
     title: "Carlos Guarrido",
     position: "Diretor de produção",
     description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos eosnecessitatibus, laborum quibusdam mollitia in optio nesciunt!",
+      "Lorem, ipsum dolor sit amet laborum quibusdam mollitia in optio nesciunt!",
     socialMedias: [
       {
         link: "#",
