@@ -200,7 +200,7 @@ export const ManyProfileCards: Story = {
     },
   },
   render: (args) => {
-    let selectedProfiles = profiles.slice(0, args.numOfCards);
+    const selectedProfiles = profiles.slice(0, args.numOfCards);
     return (
       <div className="flex flex-wrap justify-center gap-5">
         {selectedProfiles.map((profile) => (

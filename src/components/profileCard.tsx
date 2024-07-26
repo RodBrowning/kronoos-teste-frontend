@@ -8,7 +8,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { SocialMedia } from "./socialMedia";
 
@@ -39,7 +38,7 @@ export const ProfileCard: React.FC<props> = ({
       <div>
         <CardHeader className="text-center">
           <Avatar className="m-auto h-28 w-28 mb-3">
-            <AvatarImage src={imgURL} alt="@shadcn" />
+            <AvatarImage src={imgURL} alt="Profile image" />
             <AvatarFallback>
               {AvatarFallbackText[0][0] + AvatarFallbackText[1][0]}
             </AvatarFallback>
