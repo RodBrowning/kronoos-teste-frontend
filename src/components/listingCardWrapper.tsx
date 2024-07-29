@@ -39,7 +39,7 @@ export const ListingCardWrapper: React.FC<props> = ({
         {onlineUsers.map((user) => (
           <div key={user.name}>
             <ListingCard
-              imgURL={"https://github.com/shadcn.png"}
+              imgURL={user.imgURL}
               online={user.online}
               border={user.border}
               name={user.name}
@@ -51,7 +51,7 @@ export const ListingCardWrapper: React.FC<props> = ({
         {offlineUsers.map((user) => (
           <div key={user.name}>
             <ListingCard
-              imgURL={"https://github.com/shadcn.png"}
+              imgURL={user.imgURL}
               online={user.online}
               border={user.border}
               name={user.name}
